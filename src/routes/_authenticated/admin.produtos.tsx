@@ -86,7 +86,7 @@ function ProductsPage() {
                 {[0, 1, 2, 3].map((i) => (
                   <div key={i} className="bg-[#E8E4E0] overflow-hidden">
                     {p.image_urls[i] ? (
-                      <img src={p.image_urls[i]} alt="" className="w-full h-full object-cover" />
+                      <SafeImage src={p.image_urls[i]} alt="" className="w-full h-full object-cover" />
                     ) : null}
                   </div>
                 ))}
