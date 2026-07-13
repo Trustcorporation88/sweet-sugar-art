@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { LogOut, Package, Mail, ExternalLink } from "lucide-react";
+import { LogOut, Package, Mail, ExternalLink, ShoppingBag } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -51,6 +51,13 @@ function AdminLayout() {
                 <Package size={16} /> Produtos
               </Link>
               <Link
+                to="/admin/pedidos"
+                className="px-3 py-2 rounded-md text-sm font-poppins text-[#6B5344] hover:bg-[#8B6F47]/10 flex items-center gap-2"
+                activeProps={{ className: "px-3 py-2 rounded-md text-sm font-poppins bg-[#8B6F47]/15 text-[#6B4423] flex items-center gap-2 font-semibold" }}
+              >
+                <ShoppingBag size={16} /> Pedidos
+              </Link>
+              <Link
                 to="/admin/mensagens"
                 className="px-3 py-2 rounded-md text-sm font-poppins text-[#6B5344] hover:bg-[#8B6F47]/10 flex items-center gap-2"
                 activeProps={{ className: "px-3 py-2 rounded-md text-sm font-poppins bg-[#8B6F47]/15 text-[#6B4423] flex items-center gap-2 font-semibold" }}
@@ -81,6 +88,13 @@ function AdminLayout() {
             activeProps={{ className: "flex-1 text-center py-2 text-sm font-poppins text-[#6B4423] font-semibold border-b-2 border-[#8B6F47]" }}
           >
             Produtos
+          </Link>
+          <Link
+            to="/admin/pedidos"
+            className="flex-1 text-center py-2 text-sm font-poppins text-[#6B5344]"
+            activeProps={{ className: "flex-1 text-center py-2 text-sm font-poppins text-[#6B4423] font-semibold border-b-2 border-[#8B6F47]" }}
+          >
+            Pedidos
           </Link>
           <Link
             to="/admin/mensagens"

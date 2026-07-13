@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ImageLightbox from '@/components/ImageLightbox';
-import { ZoomIn } from 'lucide-react';
+import SafeImage from '@/components/SafeImage';
+import { ZoomIn, ImageOff } from 'lucide-react';
 
 const QuadrantPhotoCard = ({ product }) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -9,11 +10,6 @@ const QuadrantPhotoCard = ({ product }) => {
   const urls = product.image_urls || product.imageUrls || [];
   const photos = [urls[0] || null, urls[1] || null, urls[2] || null, urls[3] || null];
   const validPhotos = photos.filter(Boolean);
-
-  const handleImageError = (e) => {
-    e.target.style.display = 'none';
-    if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'flex';
-  };
 
   const handleImageClick = (originalIndex) => {
     if (!photos[originalIndex]) return;
@@ -36,16 +32,11 @@ const QuadrantPhotoCard = ({ product }) => {
             >
               {imgSrc ? (
                 <>
-                  <img
+                  <SafeImage
                     src={imgSrc}
                     alt={`${product.name} - view ${index + 1}`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                    onError={handleImageError}
                   />
-                  <div className="hidden w-full h-full items-center justify-center absolute inset-0 bg-[#E8E4E0]">
-                    <span className="text-[#8B6F47]/60 text-[10px]">Erro ao carregar</span>
-                  </div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
                     <div className="bg-white/80 p-2 rounded-full text-[#6B5344] backdrop-blur-sm transform scale-50 hover:scale-100 transition-transform duration-300">
                       <ZoomIn size={18} />
@@ -53,7 +44,8 @@ const QuadrantPhotoCard = ({ product }) => {
                   </div>
                 </>
               ) : (
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                  <ImageOff size={18} className="mb-1 text-[#8B6F47]/40" />
                   <span className="text-[#8B6F47]/60 text-[10px]">Sem foto</span>
                 </div>
               )}
