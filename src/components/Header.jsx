@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from '@tanstack/react-router';
 import { Menu, X, MessageCircle, Mail, Lock } from 'lucide-react';
-import { useAdminAuth } from '@/contexts/AdminAuthContext.jsx';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { isAdminLoggedIn } = useAdminAuth();
+  const isAdminLoggedIn = false;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,9 +50,9 @@ const Header = () => {
 
   const handleAdminClick = () => {
     if (isAdminLoggedIn) {
-      navigate('/admin');
+      navigate({ to: '/admin' });
     } else {
-      navigate('/admin/login');
+      navigate({ to: '/admin/login' });
     }
     setIsMobileMenuOpen(false);
   };

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { MessageCircle, Instagram, Mail, Send } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+import { toast } from 'sonner';
 import FlourishElement from '@/components/ui/FlourishElement';
-import pb from '@/lib/pocketbaseClient';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactSection = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -26,29 +25,17 @@ const ContactSection = () => {
 
     // Validation
     if (!formData.name.trim()) {
-      toast({
-        title: 'Erro',
-        description: 'Por favor, preencha seu nome.',
-        variant: 'destructive'
-      });
+      toast.error('Erro', { description: 'Por favor, preencha seu nome.' });
       return;
     }
 
     if (!formData.phone.trim()) {
-      toast({
-        title: 'Erro',
-        description: 'Por favor, preencha seu telefone.',
-        variant: 'destructive'
-      });
+      toast.error('Erro', { description: 'Por favor, preencha seu telefone.' });
       return;
     }
 
     if (!formData.message.trim()) {
-      toast({
-        title: 'Erro',
-        description: 'Por favor, escreva uma mensagem.',
-        variant: 'destructive'
-      });
+      toast.error('Erro', { description: 'Por favor, escreva uma mensagem.' });
       return;
     }
 
@@ -56,16 +43,10 @@ const ContactSection = () => {
 
     try {
       // Create record directly in PocketBase
-      await pb.collection('contact_messages').create({
-        nome: formData.name,
-        telefone: formData.phone,
-        mensagem: formData.message
-      }, { $autoCancel: false });
+      const { error } = await supabase.from('contact_messages').insert({ nome: formData.name, telefone: formData.phone, mensagem: formData.message });
+      if (error) throw error;
 
-      toast({
-        title: 'Mensagem enviada com sucesso!',
-        description: 'Entraremos em contato em breve. Obrigado!'
-      });
+      toast.success('Mensagem enviada com sucesso!', { description: 'Entraremos em contato em breve. Obrigado!' });
 
       // Reset form
       setFormData({
@@ -75,11 +56,7 @@ const ContactSection = () => {
       });
     } catch (error) {
       console.error('Contact form error:', error);
-      toast({
-        title: 'Erro',
-        description: error.message || 'Erro ao enviar mensagem. Tente novamente.',
-        variant: 'destructive'
-      });
+      toast.error('Erro', { description: '' });
     } finally {
       setIsSubmitting(false);
     }
