@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { MessageCircle, Instagram, Mail, Send } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import FlourishElement from '@/components/ui/FlourishElement.jsx';
-import pb from '@/lib/pocketbaseClient.js';
+import FlourishElement from '@/components/ui/FlourishElement';
+import pb from '@/lib/pocketbaseClient';
 
 const ContactSection = () => {
   const { toast } = useToast();

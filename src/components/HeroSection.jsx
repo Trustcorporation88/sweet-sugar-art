@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Eye } from 'lucide-react';
-import OrnamentalDivider from '@/components/ui/OrnamentalDivider.jsx';
-import DecorativePattern from '@/components/ui/DecorativePattern.jsx';
+import OrnamentalDivider from '@/components/ui/OrnamentalDivider';
+import DecorativePattern from '@/components/ui/DecorativePattern';
 import heroBg from '@/assets/images/hero-bg.svg';
 
 const HeroSection = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
-import DecorativePattern from '@/components/ui/DecorativePattern.jsx';
+import DecorativePattern from '@/components/ui/DecorativePattern';
 
 const TestimonialsSection = () => {
   const testimonials = [

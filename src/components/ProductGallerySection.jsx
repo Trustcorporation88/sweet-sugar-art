@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import QuadrantPhotoCard from '@/components/QuadrantPhotoCard.jsx';
+import QuadrantPhotoCard from '@/components/QuadrantPhotoCard';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
-import { Button } from '@/components/ui/button.jsx';
-import apiServerClient from '@/lib/apiServerClient.js';
+import { Button } from '@/components/ui/button';
+import apiServerClient from '@/lib/apiServerClient';
 
 const ProductGallerySection = () => {
   const [products, setProducts] = useState([]);

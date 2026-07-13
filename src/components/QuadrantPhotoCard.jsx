@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { getImageUrl } from '@/lib/utils.js';
-import ImageLightbox from '@/components/ImageLightbox.jsx';
+import { getImageUrl } from '@/lib/utils';
+import ImageLightbox from '@/components/ImageLightbox';
 import { ZoomIn } from 'lucide-react';
 
 const QuadrantPhotoCard = ({ product }) => {

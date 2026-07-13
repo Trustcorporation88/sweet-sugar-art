@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook, MapPin, Mail } from 'lucide-react';
-import OrnamentalDivider from '@/components/ui/OrnamentalDivider.jsx';
+import OrnamentalDivider from '@/components/ui/OrnamentalDivider';
 
 const Footer = () => {
   const scrollToSection = (sectionId) => {
