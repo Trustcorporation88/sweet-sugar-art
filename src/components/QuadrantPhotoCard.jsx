@@ -1,34 +1,7 @@
 import React, { useState } from 'react';
 import ImageLightbox from '@/components/ImageLightbox';
+import SafeImage from '@/components/SafeImage';
 import { ZoomIn, ImageOff } from 'lucide-react';
-
-const SafeImage = ({ src, alt, className }) => {
-  const [failed, setFailed] = useState(false);
-
-  if (failed || !src) {
-    return (
-      <div className={`${className} flex items-center justify-center bg-[#E8E4E0]`}>
-        <div className="text-center px-2">
-          <ImageOff size={18} className="mx-auto mb-1 text-[#8B6F47]/50" />
-          <span className="text-[#8B6F47]/60 text-[10px]">Sem foto</span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      loading="lazy"
-      onError={() => setFailed(true)}
-      onLoad={(e) => {
-        if (e.currentTarget.naturalWidth === 0) setFailed(true);
-      }}
-    />
-  );
-};
 
 const QuadrantPhotoCard = ({ product }) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
