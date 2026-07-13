@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Loader2, Plus, Pencil, Trash2, X, Upload, GripVertical, Eye, EyeOff, Save } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import SafeImage from "@/components/SafeImage";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/admin/produtos")({
