@@ -82,11 +82,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Doces premium artesanais em Bauru: brigadeiros gourmet, bolos personalizados e tortas para eventos e presentes.",
+          "Doces premium feitos à mão em Bauru. Brigadeiros gourmet, bolos personalizados e tortas artesanais para eventos e presentes.",
       },
       { name: "author", content: "Cyntia Rinaldi Doces" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Cyntia Rinaldi Doces — Doces Premium Artesanais em Bauru" },
+      { name: "twitter:title", content: "Cyntia Rinaldi Doces — Doces Premium Artesanais em Bauru" },
+      { property: "og:description", content: "Doces premium feitos à mão em Bauru. Brigadeiros gourmet, bolos personalizados e tortas artesanais para eventos e presentes." },
+      { name: "twitter:description", content: "Doces premium feitos à mão em Bauru. Brigadeiros gourmet, bolos personalizados e tortas artesanais para eventos e presentes." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9e794da-4e43-4552-bdd1-d2848e6f677a/id-preview-e81ad0a3--514cbd12-977d-4273-9043-cf14babd8485.lovable.app-1783968335437.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9e794da-4e43-4552-bdd1-d2848e6f677a/id-preview-e81ad0a3--514cbd12-977d-4273-9043-cf14babd8485.lovable.app-1783968335437.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Cyntia Rinaldi Doces — Doces Premium Artesanais em Bauru" },
       {
         property: "og:description",
-        content: "Doces premium artesanais para eventos e presentes. Bauru e região.",
+        content: "Doces premium feitos à mão em Bauru. Brigadeiros gourmet, bolos personalizados e tortas artesanais para eventos e presentes.",
       },
     ],
   }),
