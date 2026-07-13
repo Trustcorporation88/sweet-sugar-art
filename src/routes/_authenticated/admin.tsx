@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, Link, useNavigate, redirect } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { LogOut, Package, Mail, ExternalLink } from "lucide-react";
+import { LogOut, Package, Mail, ExternalLink, ShoppingBag } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
