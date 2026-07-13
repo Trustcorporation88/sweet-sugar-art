@@ -90,6 +90,13 @@ function AdminLayout() {
             Produtos
           </Link>
           <Link
+            to="/admin/pedidos"
+            className="flex-1 text-center py-2 text-sm font-poppins text-[#6B5344]"
+            activeProps={{ className: "flex-1 text-center py-2 text-sm font-poppins text-[#6B4423] font-semibold border-b-2 border-[#8B6F47]" }}
+          >
+            Pedidos
+          </Link>
+          <Link
             to="/admin/mensagens"
             className="flex-1 text-center py-2 text-sm font-poppins text-[#6B5344]"
             activeProps={{ className: "flex-1 text-center py-2 text-sm font-poppins text-[#6B4423] font-semibold border-b-2 border-[#8B6F47]" }}
