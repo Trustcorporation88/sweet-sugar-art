@@ -231,7 +231,7 @@ function ProductEditor({
             <div className="grid grid-cols-4 gap-2 mb-3">
               {form.image_urls.map((url, i) => (
                 <div key={i} className="relative aspect-square bg-[#F5F1ED] rounded overflow-hidden group">
-                  <img src={url} alt="" className="w-full h-full object-cover" />
+                  <SafeImage src={url} alt="" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-1 transition">
                     <button onClick={() => removeImage(i)} className="text-white p-1 hover:bg-red-500 rounded"><Trash2 size={14} /></button>
                     <div className="flex gap-1">
