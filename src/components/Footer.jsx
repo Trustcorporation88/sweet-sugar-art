@@ -103,6 +103,10 @@ const Footer = () => {
           <p className="text-center text-[#FFF8F0]/50 text-xs md:text-sm font-poppins px-4">
             © 2026 Cyntia Rinaldi Doces. Todos os direitos reservados.
           </p>
+          <a href="/admin/produtos" className="mt-2 text-[10px] text-[#FFF8F0]/30 hover:text-[#D4AF37] font-poppins">
+            Admin
+          </a>
+
         </div>
       </div>
     </footer>
