@@ -3,7 +3,7 @@ import { MessageCircle, Instagram, Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import FlourishElement from '@/components/ui/FlourishElement';
 import { supabase } from '@/integrations/supabase/client';
-import { getWhatsAppUrl, handleWhatsAppClick } from '@/lib/whatsapp';
+import { getWhatsAppUrl, handleWhatsAppClick, openWhatsApp } from '@/lib/whatsapp';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
