@@ -43,21 +43,25 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Create record directly in PocketBase
+      // Save to database (backup/admin panel)
       const { error } = await supabase.from('contact_messages').insert({ nome: formData.name, telefone: formData.phone, mensagem: formData.message });
-      if (error) throw error;
+      if (error) console.error('DB save error:', error);
 
-      toast.success('Mensagem enviada com sucesso!', { description: 'Entraremos em contato em breve. Obrigado!' });
+      // Build WhatsApp message and open chat with Cyntia
+      const waMessage =
+        `Olá! Nova mensagem do site cyntiarinaldidoces.com\n\n` +
+        `*Nome:* ${formData.name}\n` +
+        `*Telefone:* ${formData.phone}\n\n` +
+        `*Mensagem:*\n${formData.message}`;
 
-      // Reset form
-      setFormData({
-        name: '',
-        phone: '',
-        message: ''
-      });
+      openWhatsApp(waMessage);
+
+      toast.success('Abrindo WhatsApp...', { description: 'Envie a mensagem para concluir o contato.' });
+
+      setFormData({ name: '', phone: '', message: '' });
     } catch (error) {
       console.error('Contact form error:', error);
-      toast.error('Erro', { description: '' });
+      toast.error('Erro ao enviar', { description: 'Tente novamente ou fale direto no WhatsApp.' });
     } finally {
       setIsSubmitting(false);
     }
