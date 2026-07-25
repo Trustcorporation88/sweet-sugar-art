@@ -8,6 +8,7 @@ import {
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
+import SafeImage from '@/components/SafeImage';
 
 const WHATSAPP_NUMBER = '5514997091179';
 const MIN_TOTAL = 30;
