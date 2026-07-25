@@ -9,9 +9,10 @@ export function normalizeWhatsAppPhone(rawPhone: string) {
 export function getWhatsAppUrl(message = "", phone = WHATSAPP_NUMBER) {
   const normalizedPhone = normalizeWhatsAppPhone(phone);
   const params = new URLSearchParams();
+  params.set("phone", normalizedPhone);
   if (message.trim()) params.set("text", message);
   const query = params.toString();
-  return `https://wa.me/${normalizedPhone}${query ? `?${query}` : ""}`;
+  return `https://web.whatsapp.com/send${query ? `?${query}` : ""}`;
 }
 
 export function getWhatsAppAppUrl(message = "", phone = WHATSAPP_NUMBER) {
