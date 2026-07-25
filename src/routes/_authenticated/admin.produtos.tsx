@@ -274,13 +274,15 @@ function ProductEditor({
               />
             </Field>
             <Field label="Categoria *">
-              <input
-                type="text"
+              <select
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
-                placeholder="Ex: Brigadeiros"
-                className="w-full px-3 py-2 border border-[#8B6F47]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B6F47] font-poppins"
-              />
+                className="w-full px-3 py-2 border border-[#8B6F47]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B6F47] font-poppins bg-white"
+              >
+                <option value="">Selecione...</option>
+                <option value="Gourmet">Gourmet</option>
+                <option value="Personalizados">Personalizados</option>
+              </select>
             </Field>
           </div>
 
