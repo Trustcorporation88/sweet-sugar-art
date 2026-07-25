@@ -1,5 +1,4 @@
 export const WHATSAPP_NUMBER = "5514997091179";
-const DESKTOP_FALLBACK_DELAY = 1400;
 
 export function normalizeWhatsAppPhone(rawPhone: string) {
   const digits = rawPhone.replace(/\D/g, "");
@@ -35,13 +34,7 @@ export function openWhatsApp(message = "", phone = WHATSAPP_NUMBER) {
     return;
   }
 
-  window.location.href = appUrl;
-
-  window.setTimeout(() => {
-    if (document.visibilityState === "visible") {
-      window.location.href = getWhatsAppUrl(message, phone);
-    }
-  }, DESKTOP_FALLBACK_DELAY);
+  window.open(appUrl, "_blank", "noopener,noreferrer");
 }
 
 export function handleWhatsAppClick(
