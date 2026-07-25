@@ -275,7 +275,7 @@ const OrderPage = () => {
                         )}
                         <div className="w-full aspect-[4/3] bg-gradient-to-br from-[#F7E8EF] to-[#FDF3E3] overflow-hidden">
                           {img ? (
-                            <img src={img} alt={p.name} className="w-full h-full object-cover" loading="lazy" />
+                            <SafeImage src={img} alt={p.name} className="w-full h-full object-cover" />
                           ) : (
                             <div className="flex items-center justify-center h-full text-3xl">🍫</div>
                           )}
