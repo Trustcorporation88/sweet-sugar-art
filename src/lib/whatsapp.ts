@@ -1,4 +1,5 @@
 export const WHATSAPP_NUMBER = "5514997091179";
+const DESKTOP_FALLBACK_DELAY = 1400;
 
 export function normalizeWhatsAppPhone(rawPhone: string) {
   const digits = rawPhone.replace(/\D/g, "");
@@ -27,16 +28,20 @@ export function isMobileWhatsAppDevice() {
 }
 
 export function openWhatsApp(message = "", phone = WHATSAPP_NUMBER) {
-  const url = isMobileWhatsAppDevice()
-    ? getWhatsAppAppUrl(message, phone)
-    : getWhatsAppUrl(message, phone);
+  const appUrl = getWhatsAppAppUrl(message, phone);
 
   if (isMobileWhatsAppDevice()) {
-    window.location.href = url;
+    window.location.href = appUrl;
     return;
   }
 
-  window.open(url, "_blank", "noopener,noreferrer");
+  window.location.href = appUrl;
+
+  window.setTimeout(() => {
+    if (document.visibilityState === "visible") {
+      window.location.href = getWhatsAppUrl(message, phone);
+    }
+  }, DESKTOP_FALLBACK_DELAY);
 }
 
 export function handleWhatsAppClick(
@@ -44,7 +49,6 @@ export function handleWhatsAppClick(
   message = "",
   phone = WHATSAPP_NUMBER,
 ) {
-  if (!isMobileWhatsAppDevice()) return;
   event.preventDefault();
-  window.location.href = getWhatsAppAppUrl(message, phone);
+  openWhatsApp(message, phone);
 }
