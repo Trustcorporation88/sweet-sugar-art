@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import SafeImage from '@/components/SafeImage';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { openWhatsApp } from '@/lib/whatsapp';
 
 const MIN_TOTAL = 30;
 
@@ -135,16 +135,8 @@ const OrderPage = () => {
       toast.error(`Pedido mínimo de R$ ${MIN_TOTAL.toFixed(2)}.`);
       return;
     }
-    const url = getWhatsAppUrl(buildMessage());
-    // Use anchor click to avoid popup blockers (window.open is often blocked with long URLs)
-    const a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    toast.success('Pedido enviado para o WhatsApp!');
+    openWhatsApp(buildMessage());
+    toast.success('Abrindo WhatsApp para enviar o pedido!');
   };
 
   return (

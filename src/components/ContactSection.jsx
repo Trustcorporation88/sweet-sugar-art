@@ -3,7 +3,7 @@ import { MessageCircle, Instagram, Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import FlourishElement from '@/components/ui/FlourishElement';
 import { supabase } from '@/integrations/supabase/client';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { getWhatsAppUrl, handleWhatsAppClick } from '@/lib/whatsapp';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -68,6 +68,7 @@ const ContactSection = () => {
       icon: <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />,
       title: 'WhatsApp',
       description: 'Fale conosco agora',
+      whatsappMessage: 'Olá! Gostaria de fazer um pedido na Cyntia Rinaldi Doces',
       link: getWhatsAppUrl('Olá! Gostaria de fazer um pedido na Cyntia Rinaldi Doces'),
       linkText: 'Enviar mensagem'
     },
@@ -106,6 +107,9 @@ const ContactSection = () => {
             <a
               key={index}
               href={card.link}
+              onClick={(event) => {
+                if (card.whatsappMessage) handleWhatsAppClick(event, card.whatsappMessage);
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all group border border-[#F4D4E6] hover:border-[#D4AF37] relative overflow-hidden flex flex-col items-center text-center"
