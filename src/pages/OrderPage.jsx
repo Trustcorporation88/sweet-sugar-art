@@ -265,7 +265,7 @@ const OrderPage = () => {
                         }`}
                       >
                         <span className="absolute top-2 left-2 z-10 bg-[#C9933A] text-white text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded">
-                          {p.category === 'Brigadeiros Gourmet' ? 'Gourmet' : 'Personalizado'}
+                          {p.category}
                         </span>
                         {active && (
                           <span className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full bg-[#B5446E] text-white flex items-center justify-center">

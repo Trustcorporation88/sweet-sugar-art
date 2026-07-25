@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import QuadrantPhotoCard from '@/components/QuadrantPhotoCard';
 import { supabase } from '@/integrations/supabase/client';
 
+const CATEGORIES = ['Todos', 'Gourmet', 'Personalizados'];
+
 const ProductGallerySection = () => {
+  const [activeCat, setActiveCat] = useState('Todos');
+
   const { data: products = [], isLoading, error, refetch } = useQuery({
     queryKey: ['products', 'active'],
     queryFn: async () => {
@@ -19,6 +23,10 @@ const ProductGallerySection = () => {
     },
   });
 
+  const filtered = activeCat === 'Todos'
+    ? products
+    : products.filter((p) => p.category === activeCat);
+
   return (
     <section id="produtos" className="py-12 md:py-16 lg:py-24 bg-white relative">
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F5F1ED] via-[#8B6F47]/30 to-[#F5F1ED]"></div>
@@ -31,6 +39,22 @@ const ProductGallerySection = () => {
           <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#6B4423] mb-6 md:mb-8">
             Galeria de Doces
           </h2>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-6">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCat(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold font-poppins border-2 transition-all ${
+                  activeCat === cat
+                    ? 'bg-[#B5446E] border-[#B5446E] text-white shadow-md'
+                    : 'border-[#E8D4DC] text-[#8B6F47] hover:border-[#B5446E] hover:text-[#B5446E]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="min-h-[300px] md:min-h-[400px] relative">
@@ -47,13 +71,13 @@ const ProductGallerySection = () => {
                 <RefreshCw size={16} /> Tentar Novamente
               </Button>
             </div>
-          ) : products.length === 0 ? (
+          ) : filtered.length === 0 ? (
             <div className="flex justify-center items-center h-64 text-gray-500 text-center px-4">
-              <p className="text-sm md:text-base">Nenhum produto disponível no momento.</p>
+              <p className="text-sm md:text-base">Nenhum produto disponível nesta categoria no momento.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-              {products.map((product) => (
+              {filtered.map((product) => (
                 <div key={product.id} className="h-full transition-all duration-300">
                   <QuadrantPhotoCard product={product} />
                 </div>
