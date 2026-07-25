@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Sparkles } from 'lucide-react';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { getWhatsAppUrl, handleWhatsAppClick } from '@/lib/whatsapp';
 
 const CustomCTASection = () => {
+  const whatsappMessage = 'Olá! Gostaria de fazer um pedido personalizado na Cyntia Rinaldi Doces';
+
   return (
     <section className="relative py-24 overflow-hidden bg-[#FDF6F9]">
       {/* Background Elements */}
@@ -44,7 +46,8 @@ const CustomCTASection = () => {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href={getWhatsAppUrl('Olá! Gostaria de fazer um pedido personalizado na Cyntia Rinaldi Doces')}
+            href={getWhatsAppUrl(whatsappMessage)}
+            onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-poppins font-semibold text-lg shadow-[0_0_30px_rgba(37,211,102,0.4)] hover:shadow-[0_0_40px_rgba(37,211,102,0.6)] transition-all duration-300"

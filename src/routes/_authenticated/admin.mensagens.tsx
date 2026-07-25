@@ -4,7 +4,7 @@ import { Loader2, Mail, Phone, Trash2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { getWhatsAppUrl, normalizeWhatsAppPhone } from "@/lib/whatsapp";
+import { getWhatsAppUrl, handleWhatsAppClick, normalizeWhatsAppPhone } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/_authenticated/admin/mensagens")({
   component: MessagesPage,
@@ -49,7 +49,7 @@ function MessagesPage() {
                 <div>
                   <div className="font-semibold text-[#6B4423] font-poppins">{m.nome}</div>
                   <div className="flex items-center gap-3 text-xs text-[#6B5344]/70 mt-1">
-                    <a href={getWhatsAppUrl("", normalizeWhatsAppPhone(m.telefone ?? ""))} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[#8B6F47]">
+                    <a href={getWhatsAppUrl("", normalizeWhatsAppPhone(m.telefone ?? ""))} onClick={(event) => handleWhatsAppClick(event, "", normalizeWhatsAppPhone(m.telefone ?? ""))} target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-[#8B6F47]">
                       <Phone size={12} /> {m.telefone}
                     </a>
                     <span>{new Date(m.created_at).toLocaleString("pt-BR")}</span>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from '@tanstack/react-router';
 import { Menu, X, MessageCircle, Mail, Lock } from 'lucide-react';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { getWhatsAppUrl, handleWhatsAppClick } from '@/lib/whatsapp';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,7 +9,8 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const isAdminLoggedIn = false;
   const navigate = useNavigate();
-  const whatsappLink = getWhatsAppUrl('Olá! Gostaria de fazer um pedido na Cyntia Rinaldi Doces');
+  const whatsappMessage = 'Olá! Gostaria de fazer um pedido na Cyntia Rinaldi Doces';
+  const whatsappLink = getWhatsAppUrl(whatsappMessage);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,6 +136,7 @@ const Header = () => {
                 {/* WhatsApp Button - Header Version */}
                 <a
                   href={whatsappLink}
+                  onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
@@ -186,6 +188,7 @@ const Header = () => {
                 </a>
                 <a
                   href={whatsappLink}
+                  onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#E85B8A] to-[#D84A79] text-white px-6 py-3 rounded-full font-semibold shadow-md mt-2 text-sm"
@@ -202,6 +205,7 @@ const Header = () => {
       {/* Floating WhatsApp Button - Fixed & Always Visible */}
       <a
         href={whatsappLink}
+        onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[60] bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_25px_rgba(37,211,102,0.6)] hover:scale-110 transition-all border-2 border-white/20 flex items-center justify-center"

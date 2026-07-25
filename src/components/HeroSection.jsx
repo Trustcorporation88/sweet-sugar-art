@@ -3,9 +3,11 @@ import { ArrowRight, Eye } from 'lucide-react';
 import OrnamentalDivider from '@/components/ui/OrnamentalDivider';
 import DecorativePattern from '@/components/ui/DecorativePattern';
 import heroBg from '@/assets/images/hero-bg.svg';
-import { getWhatsAppUrl } from '@/lib/whatsapp';
+import { getWhatsAppUrl, handleWhatsAppClick } from '@/lib/whatsapp';
 
 const HeroSection = () => {
+  const whatsappMessage = 'Quero fazer um pedido na Cyntia Rinaldi Doces';
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -61,7 +63,8 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 pt-4">
             <a
-              href={getWhatsAppUrl('Quero fazer um pedido na Cyntia Rinaldi Doces')}
+              href={getWhatsAppUrl(whatsappMessage)}
+              onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full md:w-auto group bg-gradient-to-r from-[#E85B8A] to-[#D84A79] text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-playfair font-bold text-base md:text-lg hover:shadow-[0_0_20px_rgba(232,91,138,0.5)] transition-all hover:scale-105 flex items-center justify-center gap-3 border border-[#D4AF37]/30"
