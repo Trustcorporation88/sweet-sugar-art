@@ -136,7 +136,14 @@ const OrderPage = () => {
       return;
     }
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    // Use anchor click to avoid popup blockers (window.open is often blocked with long URLs)
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     toast.success('Pedido enviado para o WhatsApp!');
   };
 
