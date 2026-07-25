@@ -9,8 +9,8 @@ import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import SafeImage from '@/components/SafeImage';
+import { getWhatsAppUrl } from '@/lib/whatsapp';
 
-const WHATSAPP_NUMBER = '5514997091179';
 const MIN_TOTAL = 30;
 
 const STEPS = [
@@ -135,7 +135,7 @@ const OrderPage = () => {
       toast.error(`Pedido mínimo de R$ ${MIN_TOTAL.toFixed(2)}.`);
       return;
     }
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`;
+    const url = getWhatsAppUrl(buildMessage());
     // Use anchor click to avoid popup blockers (window.open is often blocked with long URLs)
     const a = document.createElement('a');
     a.href = url;
