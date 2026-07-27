@@ -13,11 +13,7 @@ const POSTS = [
     likes: '2.1k',
     comments: '89',
   },
-  {
-    image: 'https://scontent-gru2-2.cdninstagram.com/v/t51.82787-15/572358227_18538329514041369_6669227247488042019_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MjQyNzI1NjcwMDAyMjM5NDE0Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IlNUT1JZLnhwaWRzLjgyOC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=tY1R2GuJ4CYQ7kNvwE6rkyM&_nc_oc=AdqCNzrb4VjewpOaBjrLSYPBzU9KZReOuNDn6vyhBAvaRq_8BQh0g3yTFPda1PFJqRo&_nc_zt=23&_nc_ht=scontent-gru2-2.cdninstagram.com&_nc_gid=EQWBdg3BJF93ZS3-cAEoRg&_nc_ss=7e6a8&oh=00_AQAvH8_XgaFTj-foA7f3Z0DlDkStitY2e9yB2K4SyfTDNQ&oe=6A6D9A5D',
-    likes: '1.8k',
-    comments: '72',
-  },
+
   {
     image: 'https://scontent-gru1-2.cdninstagram.com/v/t51.82787-15/559243245_18291310699256730_8826552871746242384_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=MTk2ODkxMzUxNTg1NTI5MDYyMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IlNUT1JZLnhwaWRzLjEwMjQuc2RyLnJlZ3VsYXJfcGhvdG8uQzMifQ%3D%3D&_nc_ohc=6wvYRbr7R08Q7kNvwG06S9V&_nc_oc=Adqq3ra6AAxrZeYXtFVbK0KmA-6cpTHas4fEHD06rXwz6PDHztJX5OH5LyFaKPka6JI&_nc_zt=23&_nc_ht=scontent-gru1-2.cdninstagram.com&_nc_gid=7G8M5wdZ_bOtAqO7fVUqww&_nc_ss=7e6a8&oh=00_AQDN8H3HOeVg3XtOa5i8hHGNi-2xNyjcUjPA5nEHC29u1A&oe=6A6DA132',
     likes: '1.5k',
@@ -47,7 +43,7 @@ const POSTS = [
 
 const PhotoCard = ({ post, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const isLarge = index === 0 || index === 5;
+  const isLarge = index === 0 || index === 4;
 
   return (
     <motion.a
