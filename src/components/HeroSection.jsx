@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight, Eye, ShoppingBag, Star, Clock, Heart } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import OrnamentalDivider from '@/components/ui/OrnamentalDivider';
 import DecorativePattern from '@/components/ui/DecorativePattern';
 import heroBg from '@/assets/images/hero-bg.svg';
@@ -48,6 +49,19 @@ const HeroSection = () => {
             </svg>
           </div>
 
+          {/* Trust Badge */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#D4AF37]/40 rounded-full px-4 py-1.5 text-xs md:text-sm font-poppins text-[#6B4423]">
+              <span className="flex items-center gap-0.5 text-[#D4AF37]">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={12} fill="currentColor" />
+                ))}
+              </span>
+              <span className="font-semibold">5.0</span>
+              <span className="text-[#8B6F47]">· Bauru e região</span>
+            </div>
+          </div>
+
           {/* Headline */}
           <h1 className="font-playfair text-4xl md:text-5xl lg:text-7xl font-bold text-[#6B4423] leading-tight tracking-wide drop-shadow-sm text-center">
             Transformando seu <span className="text-[#E85B8A] italic block sm:inline">desejo</span> em doce
@@ -55,23 +69,21 @@ const HeroSection = () => {
 
           {/* Subheadline */}
           <p className="font-poppins text-base md:text-xl lg:text-2xl text-[#6B4423]/80 max-w-3xl mx-auto font-light tracking-wider text-center px-2">
-            Doces premium, feitos artesanalmente, ideais para eventos e presentes
+            Brigadeiros gourmet, bolos personalizados e doces finos — feitos à mão com ingredientes selecionados para eventos e presentes
           </p>
 
           <OrnamentalDivider className="text-[#D4AF37]/50 max-w-xs md:max-w-md mx-auto" />
 
           {/* CTA Buttons */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 pt-4">
-            <a
-              href={getWhatsAppUrl(whatsappMessage)}
-              onClick={(event) => handleWhatsAppClick(event, whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/pedidos"
               className="w-full md:w-auto group bg-gradient-to-r from-[#E85B8A] to-[#D84A79] text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-playfair font-bold text-base md:text-lg hover:shadow-[0_0_20px_rgba(232,91,138,0.5)] transition-all hover:scale-105 flex items-center justify-center gap-3 border border-[#D4AF37]/30"
             >
-              Faça seu pedido aqui
+              <ShoppingBag size={20} />
+              Monte seu pedido
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-            </a>
+            </Link>
             <button
               onClick={() => scrollToSection('produtos')}
               className="w-full md:w-auto group bg-transparent border-2 border-[#6B4423] text-[#6B4423] px-8 md:px-10 py-3 md:py-4 rounded-full font-playfair font-bold text-base md:text-lg hover:bg-[#6B4423] hover:text-white transition-all flex items-center justify-center gap-3 hover:shadow-lg"
@@ -84,12 +96,16 @@ const HeroSection = () => {
           {/* Trust Line */}
           <div className="pt-8 md:pt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[#6B4423]/70 text-xs sm:text-sm md:text-base font-poppins tracking-widest uppercase">
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D4AF37] rounded-full rotate-45"></div>
-              <span>Bauru e região</span>
+              <Heart className="text-[#D4AF37]" size={14} />
+              <span>Feito à mão</span>
             </div>
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D4AF37] rounded-full rotate-45"></div>
-              <span>produtos de qualidade</span>
+              <Clock className="text-[#D4AF37]" size={14} />
+              <span>Encomendas abertas</span>
+            </div>
+            <div className="flex items-center gap-2 md:gap-3">
+              <Star className="text-[#D4AF37]" size={14} />
+              <span>Clientes satisfeitos</span>
             </div>
           </div>
         </div>

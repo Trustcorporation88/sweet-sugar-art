@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
+import { Loader2, AlertCircle, RefreshCw, ShoppingBag } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import QuadrantPhotoCard from '@/components/QuadrantPhotoCard';
 import { supabase } from '@/integrations/supabase/client';
-
-const CATEGORIES = ['Todos', 'Gourmet', 'Personalizados'];
 
 const ProductGallerySection = () => {
   const [activeCat, setActiveCat] = useState('Todos');
@@ -23,9 +22,15 @@ const ProductGallerySection = () => {
     },
   });
 
-  const filtered = activeCat === 'Todos'
-    ? products
-    : products.filter((p) => p.category === activeCat);
+  const categories = useMemo(() => {
+    const set = new Set(products.map((p) => p.category).filter(Boolean));
+    return ['Todos', ...Array.from(set)];
+  }, [products]);
+
+  const filtered = useMemo(
+    () => (activeCat === 'Todos' ? products : products.filter((p) => p.category === activeCat)),
+    [products, activeCat],
+  );
 
   return (
     <section id="produtos" className="py-12 md:py-16 lg:py-24 bg-white relative">
@@ -41,7 +46,7 @@ const ProductGallerySection = () => {
           </h2>
 
           <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-6">
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCat(cat)}
@@ -84,6 +89,20 @@ const ProductGallerySection = () => {
               ))}
             </div>
           )}
+        </div>
+
+        {/* Order CTA */}
+        <div className="mt-12 md:mt-16 text-center">
+          <Link
+            to="/pedidos"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#B5446E] to-[#9b3359] text-white px-8 py-4 rounded-full font-playfair font-bold text-base md:text-lg hover:shadow-[0_8px_24px_rgba(181,68,110,0.35)] hover:scale-105 transition-all"
+          >
+            <ShoppingBag size={20} />
+            Monte seu pedido agora
+          </Link>
+          <p className="text-[#8B6F47] font-poppins text-xs md:text-sm mt-3">
+            Escolha os doces, personalize e finalize pelo WhatsApp em minutos
+          </p>
         </div>
       </div>
     </section>

@@ -97,7 +97,7 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mb-4">
+          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#6B4423] mb-4">
             Entre em Contato
           </h2>
           <p className="font-poppins text-sm md:text-base lg:text-xl text-gray-600 max-w-2xl mx-auto font-light px-2">
@@ -124,7 +124,7 @@ const ContactSection = () => {
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#FF8C00] to-[#FF7A00] text-white rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-md border-2 border-white shrink-0">
                   {card.icon}
                 </div>
-                <h3 className="font-playfair text-xl md:text-2xl font-bold text-[#003366] mb-2">
+                <h3 className="font-playfair text-xl md:text-2xl font-bold text-[#6B4423] mb-2">
                   {card.title}
                 </h3>
                 <p className="font-poppins text-xs md:text-sm text-gray-600 mb-3 md:mb-4">
@@ -143,14 +143,14 @@ const ContactSection = () => {
           <FlourishElement position="top-left" className="hidden md:block" />
           <FlourishElement position="bottom-right" className="hidden md:block" />
 
-          <h3 className="font-playfair text-2xl md:text-3xl font-bold text-[#003366] mb-6 md:mb-8 text-center">
+          <h3 className="font-playfair text-2xl md:text-3xl font-bold text-[#6B4423] mb-6 md:mb-8 text-center">
             Envie sua Mensagem
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 relative z-10">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-xs md:text-sm font-semibold text-[#003366] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
+              <label htmlFor="name" className="block text-xs md:text-sm font-semibold text-[#6B4423] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
                 Nome *
               </label>
               <input
@@ -167,7 +167,7 @@ const ContactSection = () => {
 
             {/* Phone */}
             <div>
-              <label htmlFor="phone" className="block text-xs md:text-sm font-semibold text-[#003366] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
+              <label htmlFor="phone" className="block text-xs md:text-sm font-semibold text-[#6B4423] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
                 Telefone *
               </label>
               <input
@@ -184,7 +184,7 @@ const ContactSection = () => {
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-xs md:text-sm font-semibold text-[#003366] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
+              <label htmlFor="message" className="block text-xs md:text-sm font-semibold text-[#6B4423] mb-1.5 md:mb-2 font-poppins uppercase tracking-wider">
                 Mensagem *
               </label>
               <textarea
@@ -203,7 +203,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-[#003366] to-[#004488] text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:from-[#FF8C00] hover:to-[#FF7A00] transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 md:gap-3 shadow-lg font-playfair mt-2"
+              className="w-full bg-gradient-to-r from-[#B5446E] to-[#9b3359] text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:from-[#9b3359] hover:to-[#B5446E] transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 md:gap-3 shadow-lg font-playfair mt-2"
             >
               {isSubmitting ? (
                 <>

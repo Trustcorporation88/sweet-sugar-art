@@ -44,7 +44,7 @@ const OrderProcessSection = () => {
           <span className="text-[#D4AF37] font-poppins uppercase tracking-[0.2em] text-xs md:text-sm font-semibold mb-2 block">
             Passo a Passo
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mb-4 md:mb-6">
+          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#6B4423] mb-4 md:mb-6">
             Como Funciona
           </h2>
           <p className="font-poppins text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">
@@ -70,13 +70,13 @@ const OrderProcessSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="flex flex-col items-center text-center group"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white border-2 border-[#D4AF37] flex items-center justify-center text-[#003366] shadow-lg mb-4 md:mb-6 group-hover:scale-110 group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300 relative shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white border-2 border-[#D4AF37] flex items-center justify-center text-[#6B4423] shadow-lg mb-4 md:mb-6 group-hover:scale-110 group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300 relative shrink-0">
                   {step.icon}
-                  <div className="absolute -bottom-2 bg-[#003366] text-white text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full">
+                  <div className="absolute -bottom-2 bg-[#B5446E] text-white text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full">
                     {index + 1}
                   </div>
                 </div>
-                <h3 className="font-playfair font-bold text-lg md:text-xl text-[#003366] mb-2 md:mb-3">
+                <h3 className="font-playfair font-bold text-lg md:text-xl text-[#6B4423] mb-2 md:mb-3">
                   {step.title}
                 </h3>
                 <p className="font-poppins text-xs md:text-sm text-gray-600 leading-relaxed px-2 md:px-0">

@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
           <span className="text-[#D4AF37] font-poppins uppercase tracking-[0.2em] text-xs md:text-sm font-semibold mb-2 block">
             O que dizem nossos clientes
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mb-4 md:mb-6">
+          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#6B4423] mb-4 md:mb-6">
             Depoimentos
           </h2>
           <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-[#F4D4E6] to-[#D4AF37] mx-auto rounded-full"></div>
@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
                   {testimonial.name.charAt(0)}
                 </div>
                 <div className="text-left">
-                  <h4 className="font-playfair font-bold text-[#003366] text-sm md:text-base">{testimonial.name}</h4>
+                  <h4 className="font-playfair font-bold text-[#6B4423] text-sm md:text-base">{testimonial.name}</h4>
                   <span className="text-[10px] md:text-xs font-poppins text-[#D4AF37] uppercase tracking-wider">{testimonial.role}</span>
                 </div>
               </div>

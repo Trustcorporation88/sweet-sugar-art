@@ -8,14 +8,14 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         onClick={onClick}
         className="w-full py-4 md:py-6 flex items-center justify-between text-left focus:outline-none group"
       >
-        <span className={`font-playfair text-base md:text-lg font-semibold transition-colors pr-4 ${isOpen ? 'text-[#D4AF37]' : 'text-[#003366] group-hover:text-[#D4AF37]'}`}>
+        <span className={`font-playfair text-base md:text-lg font-semibold transition-colors pr-4 ${isOpen ? 'text-[#D4AF37]' : 'text-[#6B4423] group-hover:text-[#D4AF37]'}`}>
           {question}
         </span>
         <span className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
           {isOpen ? (
             <Minus className="text-[#D4AF37]" size={20} />
           ) : (
-            <Plus className="text-[#003366]/50 group-hover:text-[#D4AF37]" size={20} />
+            <Plus className="text-[#6B4423]/50 group-hover:text-[#D4AF37]" size={20} />
           )}
         </span>
       </button>
@@ -63,7 +63,7 @@ const FAQSection = () => {
           <span className="text-[#D4AF37] font-poppins uppercase tracking-[0.2em] text-xs md:text-sm font-semibold mb-2 block">
             Dúvidas Frequentes
           </span>
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#003366] mb-4 md:mb-6">
+          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#6B4423] mb-4 md:mb-6">
             Perguntas & Respostas
           </h2>
         </div>
