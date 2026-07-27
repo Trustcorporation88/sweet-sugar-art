@@ -35,7 +35,7 @@ const LinkBioPage = () => {
         <div className="relative mb-4">
           <div className="w-28 h-28 rounded-full border-[3px] border-[#D4AF37] p-1">
             <img
-              src="https://horizons-cdn.hostinger.com/b0ad3521-c093-45c6-810e-27730df283d8/501518ebfdde4f0237d304916b892e6f.jpg"
+              src="/images/logo.png"
               alt="Cyntia Rinaldi Doces"
               className="w-full h-full rounded-full object-cover"
             />
