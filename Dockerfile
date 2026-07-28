@@ -12,7 +12,9 @@ FROM node:22-slim AS runtime
 
 WORKDIR /app
 
+COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/.output ./.output
+COPY --from=build /app/package.json /app/bun.lock ./
 
 ENV NODE_ENV=production
 ENV PORT=3000
