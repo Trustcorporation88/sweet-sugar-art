@@ -10,6 +10,9 @@ export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
-    server: { entry: "server" },
+    // preset: "node-server" builds a proper Node.js HTTP server (instead of the
+    // default cloudflare-module preset, which only exports a fetch() handler and
+    // never binds to a port — required for Railway to run .output/server/index.mjs).
+    server: { entry: "server", preset: "node-server" },
   },
 });
