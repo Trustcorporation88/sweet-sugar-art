@@ -100,7 +100,7 @@ const Header = () => {
                 aria-label="Voltar ao início"
               >
                 <img 
-                  src="/images/logo.png" 
+                  src="https://horizons-cdn.hostinger.com/b0ad3521-c093-45c6-810e-27730df283d8/501518ebfdde4f0237d304916b892e6f.jpg" 
                   alt="Cyntia Rinaldi Doces Personalizados Logo" 
                   className={`rounded-full object-cover shadow-md border-2 border-white/60 transition-all duration-700 group-hover:shadow-lg group-hover:scale-105 ${
                     isScrolled ? 'w-16 h-16 md:w-20 md:h-20' : 'w-24 h-24 md:w-32 md:h-32'

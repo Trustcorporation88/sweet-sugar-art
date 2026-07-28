@@ -42,7 +42,7 @@ const MyStorySection = () => {
           
           <div className="mt-12 flex justify-center">
             <img 
-              src="/images/logo.png" 
+              src="https://horizons-cdn.hostinger.com/b0ad3521-c093-45c6-810e-27730df283d8/501518ebfdde4f0237d304916b892e6f.jpg" 
               alt="Cyntia Rinaldi Assinatura" 
               className="w-24 h-24 rounded-full object-cover border-4 border-[#FDF6F9] shadow-md"
             />
