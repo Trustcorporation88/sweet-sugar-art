@@ -4,42 +4,42 @@ import { useState } from 'react';
 
 const POSTS = [
   {
-    image: 'https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image.png',
     likes: '1.2k',
     comments: '48',
   },
   {
-    image: 'https://images.pexels.com/photos/1721934/pexels-photo-1721934.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image copy.png',
     likes: '2.1k',
     comments: '89',
   },
   {
-    image: 'https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image copy copy.png',
     likes: '1.5k',
     comments: '56',
   },
   {
-    image: 'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image.png',
     likes: '1.8k',
     comments: '67',
   },
   {
-    image: 'https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image copy.png',
     likes: '987',
     comments: '41',
   },
   {
-    image: 'https://images.pexels.com/photos/3992134/pexels-photo-3992134.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image copy copy.png',
     likes: '1.6k',
     comments: '63',
   },
   {
-    image: 'https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image.png',
     likes: '2.3k',
     comments: '95',
   },
   {
-    image: 'https://images.pexels.com/photos/2693447/pexels-photo-2693447.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/image copy.png',
     likes: '1.4k',
     comments: '52',
   },
